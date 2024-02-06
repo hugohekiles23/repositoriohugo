@@ -1,0 +1,25 @@
+name: Ejecutar Pruebas Unitarias
+
+on:
+  pull_request:
+    branches:
+      - main  # Puedes ajustar la rama según tus necesidades
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v2
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Instalar dependencias
+      run: npm install
+
+    - name: Ejecutar Pruebas Unitarias
+      run: npm test
