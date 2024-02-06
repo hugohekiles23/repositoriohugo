@@ -1,0 +1,14 @@
+on:
+  push:
+    branches: [ main ]  # Reemplaza "main" con tu rama principal si es diferente
+  pull_request:
+    branches: [ main ]  # Misma rama que en el evento push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Puedes especificar el sistema operativo que prefieras
+    steps:
+      - uses: actions/checkout@v2  # Este paso es para obtener el código del repositorio
+      - name: Run unit tests
+        run: |
+          # Comando para ejecutar tus pruebas unitarias
